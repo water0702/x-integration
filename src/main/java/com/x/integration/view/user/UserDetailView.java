@@ -19,6 +19,7 @@ import java.util.TimeZone;
 @ViewController("INTEG_User.detail")
 @ViewDescriptor("user-detail-view.xml")
 @EditedEntityContainer("userDc")
+@DialogMode(width = "64em")
 public class UserDetailView extends StandardDetailView<User> {
 
     @ViewComponent

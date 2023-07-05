@@ -2,7 +2,7 @@
 <mainView xmlns="http://jmix.io/schema/flowui/main-view"
           title="msg://MainView.title">
     <actions>
-        <action id="logout" type="logout"/>
+        <action id="logout" type="logout" icon="SIGN_OUT" text="msg://logout"/>
     </actions>
     <appLayout>
         <navigationBar>
@@ -11,25 +11,33 @@
                               classNames="jmix-main-view-drawer-toggle"
                               themeNames="contrast"
                               ariaLabel="msg://drawerToggle.ariaLabel"/>
-                <h1 id="viewTitle" classNames="jmix-main-view-title"/>
+                <h1 id="viewTitle" classNames="jmix-main-view-title" width="100%"/>
+                <dropdownButton id="userBtn" icon="USER">
+                    <items>
+                        <actionItem id="logout" ref="logout"/>
+                    </items>
+                </dropdownButton>
             </header>
         </navigationBar>
         <drawerLayout>
             <section id="section" classNames="jmix-main-view-section">
-                <h2 id="applicationTitle"
-                    text="msg://applicationTitle.text"
-                    classNames="jmix-main-view-application-title"/>
+                <hbox>
+                    <image resource="./logo/logo.svg" classNames="application-logo" />
+                    <h2 id="applicationTitle"
+                        text="msg://applicationTitle.text"
+                        classNames="jmix-main-view-application-title"/>
+                </hbox>
                 <nav id="navigation"
                      classNames="jmix-main-view-navigation"
                      ariaLabel="msg://navigation.ariaLabel">
                     <listMenu id="menu"/>
                 </nav>
-                <footer id="footer" classNames="jmix-main-view-footer">
-                    <userIndicator id="userIndicator"/>
-                    <button id="logoutButton"
-                            action="logout"
-                            classNames="jmix-logout-button"/>
-                </footer>
+<!--                <footer id="footer" classNames="jmix-main-view-footer">-->
+<!--                    <userIndicator id="userIndicator"/>-->
+<!--                    <button id="logoutButton"-->
+<!--                            action="logout"-->
+<!--                            classNames="jmix-logout-button"/>-->
+<!--                </footer>-->
             </section>
         </drawerLayout>
     </appLayout>
