@@ -21,9 +21,9 @@ vaadin-login-form-wrapper {
 vaadin-grid {
   border-radius: var(--lumo-border-radius-l);
 }
-
 vaadin-grid::part(header-cell) {
-  border-radius: var(--lumo-border-radius-l);
+  border-radius: var(--lumo-border-radius-l) var(--lumo-border-radius-l) 0 0;
+  background-color: #f8f8f8;
 }
 
 body

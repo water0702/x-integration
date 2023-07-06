@@ -1,9 +1,9 @@
 package com.x.integration.user;
 
 import com.x.integration.IntegrationApplication;
-import com.x.integration.entity.User;
-import com.x.integration.view.user.UserDetailView;
-import com.x.integration.view.user.UserListView;
+import com.x.integration.domain.model.user.User;
+import com.x.integration.ui.view.user.UserDetailView;
+import com.x.integration.ui.view.user.UserListView;
 import com.vaadin.flow.component.Component;
 import io.jmix.core.DataManager;
 import io.jmix.flowui.ViewNavigators;

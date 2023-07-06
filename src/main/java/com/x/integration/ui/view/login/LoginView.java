@@ -1,4 +1,4 @@
-package com.x.integration.view.login;
+package com.x.integration.ui.view.login;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.login.AbstractLogin.LoginEvent;

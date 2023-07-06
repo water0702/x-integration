@@ -50,6 +50,12 @@ dependencies {
     implementation 'io.jmix.translations:jmix-translations-zh-cn'
     implementation 'io.jmix.quartz:jmix-quartz-starter'
     implementation 'io.jmix.quartz:jmix-quartz-flowui-starter'
+
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    implementation 'com.alibaba:fastjson:2.0.26'
+
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client
+    implementation group: 'org.springframework.security', name: 'spring-security-oauth2-client'
 }
 
 test {

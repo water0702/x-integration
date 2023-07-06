@@ -1,4 +1,4 @@
-package com.x.integration.view.main;
+package com.x.integration.ui.view.main;
 
 import com.vaadin.flow.router.Route;
 import io.jmix.core.security.CurrentAuthentication;

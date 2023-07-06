@@ -4,7 +4,7 @@
       focusComponent="form">
     <data>
         <instance id="userDc"
-                  class="com.x.integration.entity.User">
+                  class="com.x.integration.domain.model.user.User">
             <fetchPlan extends="_base"/>
             <loader/>
         </instance>
@@ -20,7 +20,7 @@
         <formLayout id="form" dataContainer="userDc">
             <textField id="usernameField" property="username" readOnly="true"/>
             <passwordField id="passwordField"
-                           label="msg://com.x.integration.entity/User.password"
+                           label="msg://com.x.integration.domain.model.user/User.password"
                            required="true"
                            visible="false"/>
             <passwordField id="confirmPasswordField"

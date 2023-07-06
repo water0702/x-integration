@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
+      title="msg://systemListView.title"
+      focusComponent="systemsDataGrid">
+    <data readOnly="true">
+        <collection id="systemsDc"
+                    class="com.x.integration.domain.model.system.System">
+            <fetchPlan extends="_base"/>
+            <loader id="systemsDl">
+                <query>
+                    <![CDATA[select e from INTEG_System e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <layout>
+        <genericFilter id="genericFilter"
+                       dataLoader="systemsDl">
+            <properties include=".*"/>
+        </genericFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="createBtn" action="systemsDataGrid.create"/>
+            <button id="editBtn" action="systemsDataGrid.edit"/>
+            <button id="removeBtn" action="systemsDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="systemsDl"/>
+        </hbox>
+        <dataGrid id="systemsDataGrid"
+                  width="100%"
+                  minHeight="20em"
+                  dataContainer="systemsDc">
+            <actions>
+                <action id="create" type="list_create">
+                    <properties>
+                        <property name="openMode" value="DIALOG"/>
+                    </properties>
+                </action>
+                <action id="edit" type="list_edit">
+                    <properties>
+                        <property name="openMode" value="DIALOG"/>
+                    </properties>
+                </action>
+                <action id="remove" type="list_remove"/>
+            </actions>
+            <columns>
+                <column property="name"/>
+                <column property="description"/>
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectBtn" action="selectAction"/>
+            <button id="discardBtn" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>

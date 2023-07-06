@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
+      title="msg://authorizationListView.title"
+      focusComponent="authorizationsDataGrid">
+    <data readOnly="true">
+        <collection id="authorizationsDc"
+                    class="com.x.integration.domain.model.authorization.Authorization">
+            <fetchPlan extends="_base"/>
+            <loader id="authorizationsDl">
+                <query>
+                    <![CDATA[select e from INTEG_Authorization e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <layout>
+        <genericFilter id="genericFilter"
+                       dataLoader="authorizationsDl">
+            <properties include=".*"/>
+        </genericFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="createBtn" action="authorizationsDataGrid.create"/>
+            <button id="editBtn" action="authorizationsDataGrid.edit"/>
+            <button id="removeBtn" action="authorizationsDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="authorizationsDl"/>
+        </hbox>
+        <dataGrid id="authorizationsDataGrid"
+                  width="100%"
+                  minHeight="20em"
+                  dataContainer="authorizationsDc">
+            <actions>
+                <action id="create" type="list_create">
+                    <properties>
+                        <property name="openMode" value="DIALOG"/>
+                    </properties>
+                </action>
+                <action id="edit" type="list_edit">
+                    <properties>
+                        <property name="openMode" value="DIALOG"/>
+                    </properties>
+                </action>
+                <action id="remove" type="list_remove"/>
+            </actions>
+            <columns>
+                <column property="name"/>
+                <column property="description"/>
+                <column property="protocol"/>
+                <column property="host"/>
+                <column property="port"/>
+                <column property="path"/>
+                <column property="clientId"/>
+                <column property="clientSecret"/>
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectBtn" action="selectAction"/>
+            <button id="discardBtn" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>

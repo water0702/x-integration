@@ -1,6 +1,6 @@
 package com.x.integration.security;
 
-import com.x.integration.entity.User;
+import com.x.integration.domain.model.user.User;
 import io.jmix.securitydata.user.AbstractDatabaseUserRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;

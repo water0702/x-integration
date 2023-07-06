@@ -1,4 +1,4 @@
-package com.x.integration.entity;
+package com.x.integration.domain.model.user;
 
 import io.jmix.core.HasTimeZone;
 import io.jmix.core.annotation.Secret;

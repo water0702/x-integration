@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://authorizationDetailView.title"
+      focusComponent="form">
+    <data>
+        <instance id="authorizationDc"
+                  class="com.x.integration.domain.model.authorization.Authorization">
+            <fetchPlan extends="_base"/>
+            <loader/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="saveAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <layout>
+        <formLayout id="form" dataContainer="authorizationDc">
+            <textField id="nameField" property="name"/>
+            <textField id="descriptionField" property="description"/>
+            <textField id="protocolField" property="protocol"/>
+            <textField id="hostField" property="host"/>
+            <textField id="portField" property="port"/>
+            <textField id="pathField" property="path"/>
+            <textField id="clientIdField" property="clientId"/>
+            <textField id="clientSecretField" property="clientSecret"/>
+        </formLayout>
+        <hbox id="detailActions">
+            <button id="saveAndCloseBtn" action="saveAction"/>
+            <button id="closeBtn" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>

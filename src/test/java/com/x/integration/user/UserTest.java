@@ -1,6 +1,6 @@
 package com.x.integration.user;
 
-import com.x.integration.entity.User;
+import com.x.integration.domain.model.user.User;
 import com.x.integration.test_support.AuthenticatedAsAdmin;
 import io.jmix.core.DataManager;
 import io.jmix.core.security.UserRepository;

@@ -1,7 +1,7 @@
-package com.x.integration.view.user;
+package com.x.integration.ui.view.user;
 
-import com.x.integration.entity.User;
-import com.x.integration.view.main.MainView;
+import com.x.integration.domain.model.user.User;
+import com.x.integration.ui.view.main.MainView;
 import com.vaadin.flow.router.Route;
 import io.jmix.flowui.view.*;
 
