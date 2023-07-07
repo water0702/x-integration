@@ -28,10 +28,10 @@ import java.util.function.Function;
 public class OAuth2AuthorizeClientConfig {
 
     public static final String PRINT_REGISTRATION_ID = "mes";
-    public static final  String PRINT_CLIENT_NAME = "integration";
-    private String printClientId;
-    private String printClientSecret;
-    private String printTokenUri;
+    public static final  String CLIENT_NAME = "integration";
+    private String clientId;
+    private String clientSecret;
+    private String tokenUri;
 
     @Bean
     public ClientRegistrationRepository clientRegistrationRepository() {
@@ -49,19 +49,19 @@ public class OAuth2AuthorizeClientConfig {
         String mesClientSecret = "secret";
 
 
-        this.printTokenUri = mesProtocol + "://" + mesHost + ":" + mesPort + mesPath + "/oauth/token";
-        this.printClientId = mesClientId;
-        this.printClientSecret = mesClientSecret;
+        this.tokenUri = mesProtocol + "://" + mesHost + ":" + mesPort + mesPath + "/oauth/token";
+        this.clientId = mesClientId;
+        this.clientSecret = mesClientSecret;
 
     }
     private ClientRegistration printClientRegistration() {
         return ClientRegistration.withRegistrationId(PRINT_REGISTRATION_ID)
-                .clientId(printClientId)
-                .clientSecret(printClientSecret)
+                .clientId(clientId)
+                .clientSecret(clientSecret)
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.PASSWORD)
-                .tokenUri(printTokenUri)
-                .clientName(PRINT_CLIENT_NAME)
+                .tokenUri(tokenUri)
+                .clientName(CLIENT_NAME)
                 .build();
     }
 

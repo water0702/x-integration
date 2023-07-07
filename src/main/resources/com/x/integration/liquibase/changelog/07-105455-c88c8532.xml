@@ -9,7 +9,7 @@
 
     <changeSet id="1" author="integration" context="!cuba">
 
-        <createTable tableName="INTEG_AUTHORIZATION">
+        <createTable tableName="INTEG_INTERFACE">
             <column name="ID" type="${uuid.type}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -20,22 +20,10 @@
                 <constraints nullable="false"/>
             </column>
             <column name="DESCRIPTION" type="varchar(255)"/>
-            <column name="PROTOCOL" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="HOST" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="PORT" type="INT">
-                <constraints nullable="false"/>
-            </column>
             <column name="PATH" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="CLIENT_ID" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="CLIENT_SECRET" type="varchar(255)">
+            <column name="AUTHORIZATION_ID" type="UUID">
                 <constraints nullable="false"/>
             </column>
             <column name="CREATED_BY" type="VARCHAR(255)"/>
@@ -45,6 +33,7 @@
         </createTable>
 
     </changeSet>
+
 
 
 </databaseChangeLog>

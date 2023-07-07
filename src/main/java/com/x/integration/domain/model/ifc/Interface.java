@@ -1,5 +1,6 @@
-package com.x.integration.domain.model.system;
+package com.x.integration.domain.model.ifc;
 
+import com.x.integration.domain.model.authorization.Authorization;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
@@ -13,9 +14,9 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "INTEG_SYSTEM")
-@Entity(name = "INTEG_System")
-public class System {
+@Table(name = "INTEG_INTERFACE")
+@Entity(name = "INTEG_Interface")
+public class Interface {
     @JmixGeneratedValue
     @Column(name = "ID", nullable = false)
     @Id
@@ -48,6 +49,13 @@ public class System {
     @Column(name = "DESCRIPTION")
     private String description;
 
+
+    @Column(name = "PATH",  nullable = false)
+    private String path;
+
+    @JoinColumn(name = "AUTHORIZATION_ID", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Authorization authorization;
     public OffsetDateTime getLastModifiedDate() {
         return lastModifiedDate;
     }
@@ -110,5 +118,21 @@ public class System {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public Authorization getAuthorization() {
+        return authorization;
+    }
+
+    public void setAuthorization(Authorization authorization) {
+        this.authorization = authorization;
     }
 }

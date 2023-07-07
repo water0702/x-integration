@@ -55,7 +55,9 @@ dependencies {
     implementation 'com.alibaba:fastjson:2.0.26'
 
     // https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client
-    implementation group: 'org.springframework.security', name: 'spring-security-oauth2-client'
+    implementation 'org.springframework.security:spring-security-oauth2-client'
+    implementation 'io.jmix.rest:jmix-rest-starter'
+    implementation 'io.jmix.authserver:jmix-authserver-starter'
 }
 
 test {

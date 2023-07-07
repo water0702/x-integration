@@ -12,6 +12,7 @@
                     <![CDATA[select e from INTEG_Authorization e]]>
                 </query>
             </loader>
+            <collection id="interfacesDc" property="interfaces"></collection>
         </collection>
     </data>
     <facets>
@@ -34,11 +35,12 @@
             <button id="createBtn" action="authorizationsDataGrid.create"/>
             <button id="editBtn" action="authorizationsDataGrid.edit"/>
             <button id="removeBtn" action="authorizationsDataGrid.remove"/>
-            <simplePagination id="pagination" dataLoader="authorizationsDl"/>
+            <simplePagination id="pagination" dataLoader="authorizationsDl" itemsPerPageVisible="true"/>
         </hbox>
+        <split width="100%" height="100%" orientation="VERTICAL">
         <dataGrid id="authorizationsDataGrid"
                   width="100%"
-                  minHeight="20em"
+                  height="100%"
                   dataContainer="authorizationsDc">
             <actions>
                 <action id="create" type="list_create">
@@ -61,9 +63,21 @@
                 <column property="port"/>
                 <column property="path"/>
                 <column property="clientId"/>
-                <column property="clientSecret"/>
             </columns>
         </dataGrid>
+        <dataGrid id="interfacesDataGrid" dataContainer="interfacesDc" width="100%" height="100%">
+            <actions>
+                <action id="create" type="list_create"/>
+                <action id="edit" type="list_edit"/>
+                <action id="remove" type="list_remove"/>
+            </actions>
+            <columns>
+                <column property="name"/>
+                <column property="description"/>
+                <column property="path"/>
+            </columns>
+        </dataGrid>
+        </split>
         <hbox id="lookupActions" visible="false">
             <button id="selectBtn" action="selectAction"/>
             <button id="discardBtn" action="discardAction"/>

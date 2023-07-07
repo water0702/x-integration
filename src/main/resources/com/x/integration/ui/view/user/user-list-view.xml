@@ -40,7 +40,7 @@
                     <actionItem id="resetPasswordItem" ref="usersDataGrid.resetPassword"/>
                 </items>
             </dropdownButton>
-            <simplePagination id="pagination" dataLoader="usersDl"/>
+            <simplePagination id="pagination" dataLoader="usersDl" itemsPerPageVisible="true"/>
         </hbox>
         <dataGrid id="usersDataGrid"
                   width="100%"

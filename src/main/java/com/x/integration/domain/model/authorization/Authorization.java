@@ -1,6 +1,10 @@
 package com.x.integration.domain.model.authorization;
 
+import com.x.integration.domain.model.ifc.Interface;
+import io.jmix.core.DeletePolicy;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.entity.annotation.OnDelete;
+import io.jmix.core.metamodel.annotation.Composition;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import jakarta.persistence.*;
@@ -10,6 +14,7 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
@@ -65,6 +70,12 @@ public class Authorization {
 
     @Column(name = "CLIENT_SECRET",  nullable = false)
     private String clientSecret;
+
+    @OnDelete(DeletePolicy.CASCADE)
+    @Composition
+    @OrderBy("name")
+    @OneToMany(mappedBy = "authorization", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private List<Interface> interfaces;
     public OffsetDateTime getLastModifiedDate() {
         return lastModifiedDate;
     }
@@ -175,5 +186,13 @@ public class Authorization {
 
     public void setClientSecret(String clientSecret) {
         this.clientSecret = clientSecret;
+    }
+
+    public List<Interface> getInterfaces() {
+        return interfaces;
+    }
+
+    public void setInterfaces(List<Interface> interfaces) {
+        this.interfaces = interfaces;
     }
 }

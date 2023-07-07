@@ -3,7 +3,6 @@
 
     <menu id="application" title="msg://com.x.integration/menu.application.title" opened="true">
         <item view="INTEG_User.list" title="msg://com.x.integration.ui.view.user/UserListView.title" icon="USER"/>
-        <item view="INTEG_System.list" title="msg://com.x.integration.ui.view.system/systemListView.title" icon="COG_O"/>
         <item view="INTEG_Authorization.list"
               title="msg://com.x.integration.ui.view.authorization/authorizationListView.title" icon="KEY_O"/>
     </menu>

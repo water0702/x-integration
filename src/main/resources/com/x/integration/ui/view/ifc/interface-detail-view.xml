@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <view xmlns="http://jmix.io/schema/flowui/view"
-      title="msg://systemDetailView.title"
+      title="msg://interfaceDetailView.title"
       focusComponent="form">
     <data>
-        <instance id="systemDc"
-                  class="com.x.integration.domain.model.system.System">
+        <instance id="interfaceDc"
+                  class="com.x.integration.domain.model.ifc.Interface">
             <fetchPlan extends="_base"/>
             <loader/>
         </instance>
@@ -17,9 +17,10 @@
         <action id="closeAction" type="detail_close"/>
     </actions>
     <layout>
-        <formLayout id="form" dataContainer="systemDc">
+        <formLayout id="form" dataContainer="interfaceDc">
             <textField id="nameField" property="name"/>
             <textField id="descriptionField" property="description"/>
+            <textField id="pathField" property="path"/>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseBtn" action="saveAction"/>
